@@ -1,0 +1,29 @@
+Github就是所有人共享的远端的代码仓库；
+Local：本地
+disk：磁盘
+
+
+
+
+修改别人的或者贡献代码都需要先将别人的代码仓库clone到自己的本地，使用命令
+--git clone  要克隆的代码地址，选择合适的格式。
+要进行修改代码时首先要新建一个feature breach( 功能分支）。
+--git checkout -b （功能分支名）。
+此命令会复制当前breach到新breach上。
+改好代码之后磁盘上改变而git上没变此时使用。
+--git diff 可以查看git分支和磁盘文件有什么区别。
+当我们确定将修改的代码告知给git时我们可以使用。
+--git add '文件名'    此时代码会存在于暂存区中git在此时才会知道你有想要commit的代码。
+使用--git commit 将这些修改真正的放到git里。
+使用此命令 git push origin my-feature（功能分支名）上传到github。
+
+当我们将代码上传到GitHub时发现mian breach 有更新时，需要测试我们的代码在新的main breach中是否好使，更新同步到我们的my-feature breach 中。
+--1.首先切换local中的breach为main使用命令--git checkout main。
+--2.使用命令--git pull origin master将远端的main 的更新同步到本地。
+--3.切换回我们的分支使用命令git rebase main同步代码-->此命令意味着将我们的修改扔到一边，将main最新的修改拿过来，尝试着将我们的commit合并上去。
+--4.如果进行了rebase之后上传到github使用命令-- git push -f origin my-feature（功能分支名）。
+
+使用 git branch -D my-feature 删除本地的分支。
+再次使用--git pull origin master将远端的main和本地的main同步。
+最后请求 pull request。
+
